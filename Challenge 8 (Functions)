@@ -1,0 +1,57 @@
+func temperatureInFahrenheit(temperature: Double) -> Double {
+    let fahrenheit = temperature * 9 / 5 + 32
+    return fahrenheit
+}
+
+let fahrenheitTemp = temperatureInFahrenheit(temperature: 24.0)
+
+func getRemainder(value a: Int, divisor b: Int) -> Int {
+    let value = a % b
+    return value
+}
+
+let result = getRemainder(value: 10, divisor: 3)
+
+func carpetCostHaving(length: Int, width: Int, carpetColour colour: String = "tan") -> (price: Int, carpetColour: String) { // Returning more than one value from a function
+    
+    // Grey carpet is £1/sq ft
+    // Tan carpet is £2/sq ft
+    // Deep blue carpet is £4/sq ft
+    
+    let areaOfRoom = area(length: length, width: width) // call second function area, pass through arguments from function carpetCostHaving
+    
+    var price = 0
+    
+    switch colour {
+        case "grey": price = areaOfRoom * 1
+        case "tan": price = areaOfRoom * 2
+        case "blue": price = areaOfRoom * 4
+    default: price = 0
+    }
+    return (price, colour)
+    
+}
+
+let resultOne = carpetCostHaving(length: 10, width: 20)
+
+resultOne.price
+resultOne.carpetColour
+
+/* -----------------------------------CODE CHALLENGE--------------------------------------*/
+
+func coordinates (for location: String) -> (Double, Double) {
+    
+    let eifelTower: (Double, Double) = (48.8582, 2.2945)
+    let greatPyramid: (Double, Double) = (29.9792, 31.1344)
+    let sydneyOperaHouse: (Double, Double) = (33.8587, 151.2140)
+    
+    switch location {
+    case "Eiffel Tower": return eifelTower
+    case "Great Pyramid": return greatPyramid
+    case "Sydney Opera House": return sydneyOperaHouse
+    
+    default: return (0,0)
+    }
+    
+}
+
