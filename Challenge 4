@@ -1,0 +1,18 @@
+// FizzBuzz test
+
+func fizzBuzz(n: Int) -> String {
+    
+    if n % 3 == 0 && n % 5 == 0 { // If number is a multiple of 3 and 5, return string Fizz Buzz
+        return "Fizz Buzz"
+    
+    }
+    else if n % 5 == 0 { // if number is a multiple of 5 return string Buzz
+        return "Buzz"
+    }
+    
+    else if n % 3 == 0 { // if number is a multple of 3 return string Fizz
+            return "Fizz"
+    }
+    
+return "\(n)" // If number is not a multiple of 3,5 or 3 and 5. Return the int.
+}
