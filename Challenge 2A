@@ -1,0 +1,45 @@
+// While loops
+
+var todo: [String] = ["Wake up",
+                      "Brush Teeth",
+                      "Code",
+                      "Sleep"]
+var i = 0
+
+while i <= 20 {
+    print(i)
+    i += 1 // unary plus operator, add's 1 to i after every iteration of the loop. Loop stops at 20.
+}
+
+var index = 0
+
+while index < todo.count { // whilst index (0) is less than the index count of array todo
+    print(todo[index]) // print each string in array to console
+    index += 1 // Index is increased by 1 at the end of each loop, to stop an infinite loop.
+}
+
+// Repeat while loop
+
+var counter = 1
+
+while counter < 1 { // whilst counter is less than 1 keep looping. Loop will become infinate. 
+    print("I am inside the while loop")
+    counter += 1
+    
+}
+
+repeat {
+    print("I am inside the repeat loop")
+    counters += 1
+    
+}
+
+let numbers = [2,8,1,16,4,3,9] // Create int array
+var sum = 0
+var counter = 0
+
+while counter < numbersP.count { // whilst counter is less than array count keep looping.
+    sum += numbers[counter] // add array numbers to var sum
+    counter += 1 // increate counter by 1 to stop infinate loop
+}
+print(sum) // print var sum to console
