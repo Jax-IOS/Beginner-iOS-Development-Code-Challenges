@@ -1,0 +1,46 @@
+// Dictionaries
+
+/*
+ 
+        Airport code (key)                      Airport name (value)
+        
+        LGA                                     La Guardia
+        LHR                                     Heathrow
+        CDG                                     Charles de Gualle
+        HKG                                     Hong Kong International
+        DXB                                     Dubai International
+ 
+ */
+
+                  // Key : value
+var airportCodes: [String: String] = // Create dictionary 
+    
+                    [
+                        "LGA": "La Guardia",
+                        "LHR": "Heathrow",
+                        "CDG": "Charles de Gualle",
+                        "HKG": "Hong Kong International",
+                        "DXB": "Dubai International"
+                    ]
+
+// NOTE* - The order of the list is stored randomly.
+
+// Reading from a dictionary
+
+airportCodes["LGA"]
+airportCodes["HKG"]
+
+// Inserting key value pairs
+
+airportCodes["SYD"] = "Sydney Airport" // insert into dictionary
+
+airportCodes["LGA"] = "La Guardia International Airport" // replace value in dictionary
+
+airportCodes.updateValue("Dublin Airport", forKey: "DUB") // if key exists, it updates for the new pair. 
+If the key does not exist, it adds the pair to the collection.
+
+
+// Removing key value pairs
+
+airportCodes["DXB"] = nil // subscript notation to remove pair value
+airportCodes.removeValue(forKey: "CDG") // method to remove pair value
