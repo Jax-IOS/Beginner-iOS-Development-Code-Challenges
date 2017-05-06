@@ -1,0 +1,36 @@
+var temperature = 9
+
+if temperature < 12 { // 
+    print("It's getting cold, lets get that jacket out!")
+} else if temperature < 18 {
+    print("It's getting chilly, I recommend wearing a light sweater")
+}
+    
+else {
+    print("It feels great outside, a t-shirt will do!")
+}
+
+// Logical Operators - mostly used with if statements
+
+if temperature > 7 && temperature < 12 { // And operator, both expressions must be true, or the whole thing is false.
+    print("Might want to wear a scarf with that jacket")
+}
+
+var isRaining = true // set bool value of variables
+var isSnowing = false
+
+if isRaining || isSnowing { // or operator, if one statement is true, it won't look at anything else.
+    print("Get out those boots")
+}
+
+if !isRaining {
+    print("Yay the sun is out")
+}
+
+if isRaining && isSnowing && temperature < 2 {
+    print("Put some gloves on")
+}
+
+if (isRaining || isSnowing) && temperature < 2 {
+    print("Deffinatley get those gloves on")
+}
