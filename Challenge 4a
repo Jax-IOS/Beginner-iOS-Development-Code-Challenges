@@ -1,0 +1,24 @@
+// handeling odd numbers and multiples of numbers
+
+var results: [Int] = [] // create empty array
+
+for n in 1...100 {
+    // not even      multiple of 7
+    if n % 2 != 0 && n % 7 == 0 { // if n is odd and a multiple of 7 place into resultS array.
+        results.append(n)// add n to array
+    }
+    
+    
+    
+}
+print(results) // print array to console 
+
+var random: [Int] = []
+
+for i in 1...100 {
+    
+    if i % 2 != 0 && i % 5 == 0 {
+        random.append(i)
+        
+    }
+}
