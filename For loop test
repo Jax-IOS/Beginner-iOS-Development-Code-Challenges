@@ -1,0 +1,38 @@
+var beginnerIosDevelopment: [String] =
+    
+                        [
+                                "Swift Basics",
+                                "Collections and Control Flows",
+                                "Functions in Swift",
+                                "Object Oriented Swift",
+                                "Build simple iPhone app in Swift",
+                                "Enumerations & Optionals",
+                                "Protocols",
+                                "Error Handling",
+                                "Build vending machine appl",
+                                "Introduction to auto layout in IOS"
+                        ]
+
+// Modify Array Elements
+
+beginnerIosDevelopment[0] = "Swift Basics."
+beginnerIosDevelopment[1] = "Collections and Control Flows."
+
+var completedTasks: [String] = ["Completed Tasks"]
+
+//completedTasks += [beginnerIosDevelopment[0]] // Add Array element to new array
+//completedTasks += [beginnerIosDevelopment[1]]
+
+
+for i in 0..<2 // Will loop twice, i is the array index, loops until it gets to 2 and stops.
+
+{
+    completedTasks += [beginnerIosDevelopment[i]] // Add array element to new array
+    
+}
+
+for _ in 0..<2
+{beginnerIosDevelopment.remove(at: 0)}
+
+print(completedTasks) // Print array
+print(beginnerIosDevelopment)
