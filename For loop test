@@ -1,8 +1,8 @@
 var beginnerIosDevelopment: [String] =
     
                         [
-                                "Swift Basics",
-                                "Collections and Control Flows",
+                                "Swift Basic",
+                                "Collections and Control Flow",
                                 "Functions in Swift",
                                 "Object Oriented Swift",
                                 "Build simple iPhone app in Swift",
@@ -13,26 +13,20 @@ var beginnerIosDevelopment: [String] =
                                 "Introduction to auto layout in IOS"
                         ]
 
-// Modify Array Elements
+beginnerIosDevelopment[0] = "Swift Basics" // Modify Array Elements
+beginnerIosDevelopment[1] = "Collections and Control Flows" // Modify Array Elements
 
-beginnerIosDevelopment[0] = "Swift Basics."
-beginnerIosDevelopment[1] = "Collections and Control Flows."
+var completedTasks: [String] = ["Completed Tasks"] // Create new array 
 
-var completedTasks: [String] = ["Completed Tasks"]
-
-//completedTasks += [beginnerIosDevelopment[0]] // Add Array element to new array
-//completedTasks += [beginnerIosDevelopment[1]]
-
-
-for i in 0..<2 // Will loop twice, i is the array index, loops until it gets to 2 and stops.
+for i in 0..<2 // Create for loop for to go through [0,1] array elements 
 
 {
-    completedTasks += [beginnerIosDevelopment[i]] // Add array element to new array
+    completedTasks += [beginnerIosDevelopment[i]] // Add array element to completedTasks array
     
 }
 
-for _ in 0..<2
-{beginnerIosDevelopment.remove(at: 0)}
+for _ in 0..<2 {
+beginnerIosDevelopment.remove(at: 0) // Remove array elements from beginnerIosDevelopment
+}
 
-print(completedTasks) // Print array
-print(beginnerIosDevelopment)
+print(completedTasks) // Print array to console
