@@ -55,3 +55,52 @@ func coordinates (for location: String) -> (Double, Double) {
     
 }
 
+func areaCode (for location: String) -> (String) {
+    
+   /* if location == "Neath" {
+        return (01639)
+    }
+    else if location == "Swansea" {
+        return (01792)
+    }
+    else if location == "Cardiff" {
+        return (01446)
+    }
+    else {
+        return (0)
+    } */
+    
+    switch location {
+    case "Neath": return("The area code for Neath is 01639")
+    case "Swansea": return("The area code for Swansea is 01792")
+    default: return ("Area code not found")
+    }
+}
+
+var swansea = areaCode(for: "Swansea")
+print(swansea)
+
+// ----------------------------------------------------------------------------------------------------------------------------------------
+
+
+let countryDialingCodes: [String: String]  = // Create dictionary of country dialing codes
+                                        ["Sweden": "+46",
+                                        "Germany": "+49",
+                                        "United Kingdom": "+44",
+                                        "France": "+33",
+                                        "Norway": "+47",
+                                        "Finland": "+358",
+                                        "Russia": "+7"]
+
+
+func countryDialingCodeSearch (country a: String) -> (String) { // create function to return country dialing codes, stored in dictionary.
+    
+    if countryDialingCodes.keys.contains(a) { // Check if countryDialingCodes key contains argument passed in country
+        return countryDialingCodes[a]! // If it contains key, return the value.
+    }
+    return ("")
+}
+
+countryDialingCodeSearch(country: "France")
+
+
