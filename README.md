@@ -13,4 +13,5 @@ For loop |
 While loop |
 Repeat while loop |
 IF statements |
-Switches 
+Switches |
+Structures 
