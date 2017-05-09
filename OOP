@@ -1,0 +1,180 @@
+// Object Oriented Programming models information into data structures, or objects. We can add information to the containers as stored properties.
+// Structures are a flexiable data type allowing you two group together related values and model them as a related unit.
+
+struct Point { // Structs are blueprints, a data structure of stored properties. An Object. Structures create their own memberwise intiliser for you.
+    let x: Int // define properties to store values
+    let y: Int // ^^ 
+    
+    //init(x: Int, y: Int) { // initialiser method. Set up a object for use. CREATE FUNCTION. USED TO EXECUTE THE CODE
+        
+      //  self.x = x // self is used to refer to properties inside an object.
+        //self.y = y
+    //}
+    
+    /// Returns the surrounding points in range of 
+    /// the current one
+    func points(inRange range:Int = 1) -> [Point] { // reffered to as a method, because it is asociated with a object (structure)
+        var results: [Point] = []
+        
+        let lowerBoundOfXRange = x - range // reach 1 point to the left
+        let upperBoundOfXRange = x + range // reach 1 point to the right
+        
+        let lowerBoundOfYRange = y - range // reach 1 point up
+        let upperBoundOfYRange = y + range // reach one point down
+        
+        for xCoordinate in lowerBoundOfXRange...upperBoundOfXRange { // loop through - 1 to + 1 for xrange
+            
+            for yCoordinate in lowerBoundOfYRange...upperBoundOfYRange { // loop through for y range
+                
+                let coordinatePoint = Point(x: xCoordinate, y: yCoordinate) // constant doordinatePoint = Point structure with x and y initialiser.
+                
+                results.append(coordinatePoint) // place into point array
+            }
+        }
+        
+        return results
+        
+    }
+    
+}
+
+let coordinatePoint = Point(x: 0, y: 0) // this creates an instance of the struct
+coordinatePoint.points()  // () = perethasies [] = brackets {} = curly brace
+
+class Enemy { // Classes require us to create an initiliaser manually. Classes are more efficient over time, but take longer to clean up memory.
+    var life: Int = 2 // { used to declare a class with properties function. Like a piece of paper where everything is written.
+    let position: Point // : to declare a type, int, string. Also used to declare what parameter a value should be.
+    
+    init(x: Int, y: Int) { // ( ) is used for functions/methods. Telling you what values to pass in.
+        self.position = Point.init(x: x, y: y) // . is OOP, used to excute instructions against objects you also dont need to type init.
+
+    }
+    
+    func decreaseLife(by factor: Int) {
+        life -= factor
+        
+    }
+}
+
+class Tower {
+    let position: Point
+    var range: Int = 1
+    var strength: Int = 1
+    
+    
+    init(x: Int, y: Int) {
+        self.position = Point(x: x, y: y)
+    }
+    func fire(at enemy: Enemy) {
+        
+        if isInRange(of: enemy) {
+            enemy.decreaseLife(by: 1)
+            print("Gotcha")
+        } else {
+            print("Darn out of range")
+        }
+        
+    }
+    
+    func isInRange (of enemy: Enemy) -> Bool { // Helper method
+        let availablePositions =  position.points(inRange: range)
+        
+        for point in availablePositions {
+            if point.x == enemy.position.x && point.y == enemy.position.y {
+                
+                return true
+                
+            }
+        }
+        return false
+    }
+
+}
+
+let firstTower = Tower(x: 0, y: 0) // position tower on map
+let firstenemy = Enemy(x: 1, y: 1) // position enemy on map
+
+firstTower.fire(at: firstenemy) // tell tower to fire at enemy in range
+
+
+/*---------------------------------------------------------CODE CHALLENGE-----------------------------------------------------------*/
+struct Person { // structures are cleaned faster but are less efficient over time. They should be small.
+    
+    let firstName: String
+    let lastName: String
+    
+    func fullName () -> String {
+        var result: String = ""
+        result = ("\(firstName ) \(lastName)")
+    
+        return result
+    }
+    }
+
+let aPerson = Person(firstName: "Jax", lastName: "Morgans")
+let myFullName = aPerson.fullName()
+/*---------------------------------------------------------CODE CHALLENGE-----------------------------------------------------------*/
+struct RGBColour { // Create structure
+    let red: Double // create empty constants to pass into structure
+    let green: Double
+    let blue: Double
+    let alpha: Double
+    let description: String
+    
+    init(red: Double, green: Double, blue: Double, alpha: Double) { // initialise constants with arguments entered
+        
+        self.red = red // self red = let red. red = red: Double in parameters. Declaring them as the same variable or constant to be used within structure.
+        self.green = green
+        self.blue = blue
+        self.alpha = alpha
+        
+        description = ("red: \(red), green: \(green), blue: \(blue), alpha: \(alpha)") // initilise description constant string with values
+        // description prevents you having to write out description manually from the outside. So init is needed. Create custom initializer.
+    }
+}
+
+/*---------------------------------------------------------CODE CHALLENGE-----------------------------------------------------------*/
+
+class Shape { // Create shape class
+    var numberOfSides: Int // blue print a variable of sides into class
+    
+    init (numberOfsides: Int) { // initiliase variable number of sides to take argument numberofsides inside method
+        self.numberOfSides = numberOfsides // local numberofsides = global numberofsides.
+        
+        
+    }
+    let someShape = Shape(numberOfsides: 8) // assign number of sides int value to shape class.
+    
+    
+}
+
+struct Location { // structures create their own init functions
+    
+    let latitude: Double
+    let longitude: Double
+    
+    //
+    
+}
+
+class Business {
+    
+    let name: String
+    let location: Location
+    
+    init(name: String, location: Location) {
+        self.name = name
+        self.location = location
+    }
+    
+    let someBusiness = Business(name: "Lewis", location: Location.init(latitude: 2.555, longitude: 3.555) )
+    
+}
+
+/*---------------------------------------------------------CODE CHALLENGE-----------------------------------------------------------*/
+
+// Freeing up memory is called garbage collection. A class, would be a map on overwatch. As soon as the match is over, the memory is freed up to load a new class. 
+// Garagbe collector can figure out faster when a structure is not being used compared to a class. Classes as more memory efficient over time. 
+// A bullet out of a gun will be a struct (they should be small), they are short lived and dont require a lot of memory. But there are so many of them they need to be garbage collected faster than a class. Garbage collector handle structs faster than classes.
+// Garbage collectors are built into the language by the developers.
+//
