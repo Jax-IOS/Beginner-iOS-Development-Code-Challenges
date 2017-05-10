@@ -103,11 +103,31 @@ class Tower {
 
 }
 
+class LaserTower: Tower {
+    
+    override init(x: Int, y: Int) {
+        super.init(x: x, y: y)
+        self.range = 100
+        self.strength = 100
+        
+    }
+    
+    override func fire(at enemy: Enemy) {
+        while enemy.life >= 0 {
+            enemy.decreaseLife(by: strength)
+        }
+        print("Enemy Destroyed")
+    }
+    
+}
+
 let firstTower = Tower(x: 0, y: 0) // position tower on map
 let firstenemy = Enemy(x: 1, y: 1) // position enemy on map
 let superEnemy = SuperEnemy(x: 1, y: 1) // Class inheritence.
+let laserTower = LaserTower(x: 2, y: 2)
 
-firstTower.fire(at: firstenemy) // tell tower to fire at enemy in range
+laserTower.fire(at: superEnemy)
+
 
 /*---------------------------------------------------------CODE CHALLENGE-----------------------------------------------------------*/
 struct Person { // structures are cleaned faster but are less efficient over time. They should be small.
@@ -199,7 +219,7 @@ class Car: Vehicle { // Innherited class
     
     override init (withDoors doors: Int, andWheels wheels: Int) { // call parent initialiser and over ride it.
     
-        super.init(withDoors: doors, andWheels: wheels) // override parent intialiser with this one.
+        super.init(withDoors: doors, andWheels: wheels) // override parent intialiser to include below properties
         self.numberOfSeats = 5 // set internal property value
     }
 }
@@ -207,6 +227,31 @@ class Car: Vehicle { // Innherited class
 let someCar = Car.init(withDoors: 5, andWheels: 5) // initialise values and assign to constant. 
 
 /*---------------------------------------------------------CODE CHALLENGE-----------------------------------------------------------*/
+
+class Persons { // super class
+    let firstName: String
+    let lastName: String
+    
+    init(firstName: String, lastName: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+    }
+    
+    func fullName() -> String {
+        return "\(firstName) \(lastName)"
+    }
+    
+}
+
+class Doctor: Persons { // inherited sub class
+    
+    override func fullName() -> String { // override fullName function to return the new value
+        return "Dr. \(lastName)" // return following value
+    }
+}
+
+let someDoctor = Doctor(firstName: "Sam", lastName: "Smith") // initialise Doctor class to constant
+someDoctor.fullName() // call Doctor function returning name Dr. Smith.
 
 // Freeing up memory is called garbage collection. A class, would be a map on overwatch. As soon as the match is over, the memory is freed up to load a new class. 
 // Garagbe collector can figure out faster when a structure is not being used compared to a class. Classes as more memory efficient over time. 
