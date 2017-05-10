@@ -56,6 +56,18 @@ class Enemy { // Classes require us to create an initiliaser manually. Classes a
     }
 }
 
+// now referred to a sub class. Following DRY - don't repeat yourself.
+class SuperEnemy: Enemy { // class inheritence. A class can inherit properties methods initialisers. Everything from inside { }
+    
+    let isSuper: Bool = true // assign value to new proprties in sub class
+    
+    override init(x: Int, y: Int) { // override inherited initialiser.
+        
+        super.init(x: x, y: y) // Use initialisers and pass in values from super class.
+        self.life = 50 // assign life propertie in sub class.
+    }
+}
+
 class Tower {
     let position: Point
     var range: Int = 1
@@ -93,9 +105,9 @@ class Tower {
 
 let firstTower = Tower(x: 0, y: 0) // position tower on map
 let firstenemy = Enemy(x: 1, y: 1) // position enemy on map
+let superEnemy = SuperEnemy(x: 1, y: 1) // Class inheritence.
 
 firstTower.fire(at: firstenemy) // tell tower to fire at enemy in range
-
 
 /*---------------------------------------------------------CODE CHALLENGE-----------------------------------------------------------*/
 struct Person { // structures are cleaned faster but are less efficient over time. They should be small.
@@ -144,17 +156,12 @@ class Shape { // Create shape class
         
     }
     let someShape = Shape(numberOfsides: 8) // assign number of sides int value to shape class.
-    
-    
 }
 
 struct Location { // structures create their own init functions
     
     let latitude: Double
     let longitude: Double
-    
-    //
-    
 }
 
 class Business {
@@ -173,8 +180,36 @@ class Business {
 
 /*---------------------------------------------------------CODE CHALLENGE-----------------------------------------------------------*/
 
+class Vehicle {
+    
+    var numberOfDoors: Int
+    var numberOfWheels: Int
+    
+    init(withDoors doors: Int, andWheels wheels: Int) {
+        
+        self.numberOfDoors = doors
+        self.numberOfWheels = wheels
+        
+    }
+}
+
+class Car: Vehicle { // Innherited class
+    
+    var numberOfSeats: Int = 0 // set empty constant
+    
+    override init (withDoors doors: Int, andWheels wheels: Int) { // call parent initialiser and over ride it.
+    
+        super.init(withDoors: doors, andWheels: wheels) // override parent intialiser with this one.
+        self.numberOfSeats = 5 // set internal property value
+    }
+}
+
+let someCar = Car.init(withDoors: 5, andWheels: 5) // initialise values and assign to constant. 
+
+/*---------------------------------------------------------CODE CHALLENGE-----------------------------------------------------------*/
+
 // Freeing up memory is called garbage collection. A class, would be a map on overwatch. As soon as the match is over, the memory is freed up to load a new class. 
 // Garagbe collector can figure out faster when a structure is not being used compared to a class. Classes as more memory efficient over time. 
 // A bullet out of a gun will be a struct (they should be small), they are short lived and dont require a lot of memory. But there are so many of them they need to be garbage collected faster than a class. Garbage collector handle structs faster than classes.
 // Garbage collectors are built into the language by the developers.
-//
+
