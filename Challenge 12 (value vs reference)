@@ -1,0 +1,32 @@
+struct User { // declare structure
+    var fullName: String // declare empty properties
+    var email: String
+    var age: Int
+}
+
+var someUser = User(fullName: "Jax Morgans", email: "lfgdfgdfgans99976hhsfkfs@gmail.com", age: 25) // initialise properties and assign to variable. Note, structures have built in initliasers, you are not required to write one, unless you want a different out come.
+
+var anotherUser = someUser // value type, copied the values, and assigned the values to anotherUser. Two copies of the same structure.
+someUser.email = "test.email@gmail.com" // The original structure has not been altered, as it was copied.
+
+class Person { // create class
+    var fullName: String // create empty properties
+    var email: String
+    var age: Int
+    
+    init(name: String, email: String, age: Int) { // initialise properties
+        self.fullName = name
+        self.age = age
+        self.email = email
+    }
+}
+
+var somePerson = Person(name: "Jax", email: "test123", age: 35)
+var anotherPerson = somePerson // A class is a reference type, it points to the memory location stored, and updates it with new information.
+
+somePerson.email = "test email 12786" // assign new string value to variable email.
+
+anotherPerson.email
+
+// Values types, aka structures, arrays, strings, ints. can not be modified. They make a copy of data and assign it to the new variable location.
+// reference types, aka classes, point to the location of stored memory where data is stored, and allow it to be changed.
