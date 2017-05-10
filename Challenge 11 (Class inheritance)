@@ -1,0 +1,38 @@
+class Jonas { // super class
+    var firstName: String // declare empty properties
+    var lastName: String
+    var nationality: String
+    
+    init(firstName: String, lastName: String, nationality: String) { // initialise properties, classes don't have self functioning initialisers.
+        self.firstName = firstName
+        self.lastName = lastName
+        self.nationality = nationality
+    }
+    
+    func printName() -> String { // create method to print string + values to console
+        return "\(firstName) \(lastName) is a \(nationality) patriot"
+    }
+}
+
+let jonas = Jonas.init(firstName: "Jonas", lastName: "Hedström", nationality: "Swedish  ") // initialise constant
+jonas.printName() // call print method
+
+class Lewis: Jonas { // Sub class inheritance
+    
+    var testString: String = "" // create new empty variable
+    
+    override init(firstName: String, lastName: String, nationality: String) { // call initialiser from super class
+        
+   super.init(firstName: firstName, lastName: lastName, nationality: nationality) // initialise sub class with new propertie values
+        
+        self.testString = "But loves Sweden"
+        
+        }
+    
+    override func printName() -> String { // override super method
+        return "\(firstName) \(lastName) is a \(nationality) patriot \(testString)" // edit method statement to return different values
+    }
+    }
+
+let jax = Lewis(firstName: "Jax", lastName: "Morgans", nationality: "Welsh") // initialise constant
+jax.printName() // print constant to screen with overridden print method.
